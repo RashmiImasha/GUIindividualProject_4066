@@ -1,0 +1,121 @@
+﻿<Window x:Class="Desktop_01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Desktop_01"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="500" Width="950">
+
+
+    <Window.DataContext>
+        <local:MainWindowVM/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="400"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Border>
+                <Border.Background>
+                    <LinearGradientBrush StartPoint ="0 0"
+                                         EndPoint="1 1">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="DarkBlue" Offset="1"/>
+
+                    </LinearGradientBrush>
+
+                </Border.Background>
+                <TextBlock Text="____Student Management System____" Foreground="White" Style="{StaticResource Titletext}" Margin="20"/>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.7*"/>
+                <ColumnDefinition Width="1.6*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Row="1" Grid.Column="0">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0 0"
+                                     EndPoint="1 1">
+                        <GradientStop Color="Blue" Offset="0"/>
+                        <GradientStop Color="Purple" Offset="0.5"/>
+                        <GradientStop Color="HotPink" Offset="0.3"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="1"/>
+
+                    </LinearGradientBrush>
+
+                </Border.Background>
+                <Grid>
+
+                    <StackPanel Margin="20" Orientation="Vertical">
+
+                        <Border Width="90" Height="90" Padding="3" Background="Black" CornerRadius="100"
+                        DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="10">
+                            <Ellipse HorizontalAlignment="Right" Width="85">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="C:\Users\HP\Desktop\GUIindividual_4066\Desktop_01\Model\Images\lmslogo.png"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </Border>
+
+                        <Button Content="Add Student" Margin="10" Command="{Binding AddStudentCommand}" Style="{StaticResource mainbutten}"/>
+                        <Button Content="Edit Student" Margin="10" Style="{StaticResource mainbutten}" Command="{Binding ExecuteEditStudentCommandCommand}" />
+                        <Button Content="Delete Student" Margin="10" Style="{StaticResource mainbutten}" Command="{Binding DeleteCommand}"/>
+                        <Button Content="Quit" Margin="10" Style="{StaticResource mainbutten}" Click="Button_Click" />
+
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1" Background="CadetBlue">
+                <StackPanel Height="500" Background="LightGray" VerticalAlignment="Top" Orientation="Vertical" >
+                    <StackPanel Margin=" 20 20 0 0"  HorizontalAlignment="Left" Width="600"  Background="Transparent" Orientation="Horizontal" >
+
+                        <TextBlock Text="Image" Foreground="Black"  Style="{StaticResource ListView}" Width="30" />
+                        <TextBlock Text="IdNo" Foreground="Black"  Style="{StaticResource ListView}" Width="85" Margin="20 0 0 0"/>
+                        <TextBlock Text="FirstName" Foreground="Black"  Style="{StaticResource ListView}" Width="85" Margin="0"/>
+                        <TextBlock Text="LastName" Foreground="Black"   Style="{StaticResource ListView}" Width="73" />
+                        <TextBlock Text="Age" Foreground="Black"  Style="{StaticResource ListView}" Width="64" />
+                        <TextBlock Text="DataOfBirth"  Foreground="Black"  Style="{StaticResource ListView}" Width="85" />
+                        <TextBlock Text="   GPA" Foreground="Black"  Style="{StaticResource ListView}" Width="58" />
+
+                    </StackPanel>
+
+                    <ListView x:Name="Listview"  Margin="0 0 0 0" Background="Transparent" Height="407" ItemsSource="{Binding Students,UpdateSourceTrigger=PropertyChanged}"
+                     SelectedItem="{Binding SelectedStudent,UpdateSourceTrigger=PropertyChanged}" SelectionChanged="Listview_SelectionChanged">
+                        <ListView.ItemTemplate >
+                            <DataTemplate>
+                                <Border Background="Transparent" BorderBrush="#2f1102" BorderThickness="1"
+                                Padding="0.1" CornerRadius="5" Width="630" Height="35" >
+                                    <StackPanel Width="600"  Background="Transparent" Orientation="Horizontal" >
+
+                                        <Image Width="30" Height="30" Margin="1" Source="{Binding Image}" />
+                                        <TextBlock Text="{Binding IdNo,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource ListView}" Margin="25 0 0 0"/>
+                                        <TextBlock Text="{Binding FirstName,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource ListView}" Width="85" Margin="27 0 0 0"/>
+                                        <TextBlock Text="{Binding LastName,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource ListView}" Width="73" />
+                                        <TextBlock Text="{Binding Age,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource ListView}" Width="64" Margin="14 0 0 0"/>
+                                        <TextBlock Text="{Binding DateofBirth,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource ListView}" Width="85" />
+                                        <TextBlock Text="{Binding GPA,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource ListView}" Width="58" Margin="23 0 0 0"/>
+
+                                    </StackPanel>
+
+                                </Border>
+                            </DataTemplate>
+
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+
+            </Border>
+        </Grid>
+
+
+
+    </Grid>
+</Window>

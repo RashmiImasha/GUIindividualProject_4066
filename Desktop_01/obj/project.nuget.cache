@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Qf6o9GFO1i4oN8pgb3X/QASK916STZPVIS/o7F23zXjloTaeAbI55/nfZ0SIh4VwdmCE8FslA4x6qOHM5yXUbQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\HP\\Desktop\\GUIindividual_4066\\Desktop_01\\Desktop_01.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\HP\\.nuget\\packages\\communitytoolkit.mvvm\\8.2.0-preview2\\communitytoolkit.mvvm.8.2.0-preview2.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\microsoft.toolkit.mvvm\\7.1.2\\microsoft.toolkit.mvvm.7.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}
